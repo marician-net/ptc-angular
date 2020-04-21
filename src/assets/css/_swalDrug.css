@@ -1,0 +1,44 @@
+.dot-drug .swal2-content {
+    color: #003c71 !important;
+    margin-top: 20px !important;
+    font-size: 3rem !important;
+}
+.dot-drug .swal2-actions {
+    flex-direction: column;
+    align-items: stretch !important;
+    margin: 1.25em 35px 0 !important;
+}
+.dot-drug .swal2-actions .swal2-confirm {
+    flex: 1 !important;
+    background: green !important;
+    border-radius: 40px !important;
+    padding: 15px !important;
+    font-size: 1.5em !important;
+}
+.dot-drug .swal2-actions .swal2-cancel {
+    color: #69b3e7 !important;
+    background: none !important;
+}
+.drug-dot-tag {
+    position: absolute;
+    top: 0;
+    margin: 13px;
+    font-size: 16px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: left;
+    color: #69b3e7;
+}
+.drug-dot-tag-alcohol {
+    position: absolute;
+    top: 0;
+    margin: 13px;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.19;
+    color: #69b3e7;
+    margin-left: 180px;
+}

@@ -1,0 +1,37 @@
+{
+    "env": {
+        "name": "DEV"
+     },
+    "appInsights": {
+        "instrumentationKey": "<dev-guid-here>"
+     },
+    "logging": {
+        "console": true,
+        "appInsights": false
+    },
+    "connection": {
+        "requireAuth": true,
+        "tenant": "<dev-guid-here>",
+        "clientId": "<dev-guid-here>"
+    },
+    "apiServer": {
+        "metadata": "https://metadata.demo.com/api/v1.0/",
+        "rules": "https://rules.demo.com/api/v1.0/",
+        "authAPI": "http://localhost:3000"
+    },
+    "redirectionApp": {
+        "admin": "http://localhost:4200",
+        "loggedin": "http://localhost:4200/auth-callback"
+    },
+    "errors": {
+        "toast_timer": 5400
+    },
+    "authentication": {
+        "rsa": {
+            "privateKey": "9d958b7eff6a4490b05e48316e6305b5",
+            "publicKey": "7c4e85a4b6de4d1abca9540f3b636cd5",
+            "enabled": true
+        }
+    },
+    "debug": true
+}

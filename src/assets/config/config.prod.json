@@ -1,0 +1,30 @@
+{
+    "env": {
+        "name": "#{envName}"
+    },
+    "appInsights": {
+        "instrumentationKey": "#{appInsightsKey}"
+    },
+    "logging": {
+        "console": true,
+        "appInsights": true
+    },
+    "connection": {
+        "requireAuth": true,
+        "tenant": "#{aadTenant}",
+        "clientId": "#{aadClientId}"
+    },
+    "errors": {
+        "toast_timer": 5400
+    },
+    "redirectionApp": {
+        "admin": "https://ptcscheduler.z19.web.core.windows.net",
+        "loggedin": "https://ptcscheduler.z19.web.core.windows.net/auth-callback"
+    },
+    "apiServer": {
+        "metadata": "https://#{apiServerPrefix}.demo.com/api/v1.0/",
+        "rule": "https://#{apiServerPrefix}.demo.com/api/v1.0/",
+        "local_login": "http://localhost:3000/api"
+    },
+    "debug": false
+}

@@ -1,0 +1,134 @@
+@font-face {
+  font-family: PNB;
+  src: url("/assets/fonts/ProximaNova-Black.otf");
+}
+@font-face {
+  font-family: PNR;
+  src: url("/assets/fonts/ProximaNova-Regular.otf");
+
+}
+
+.container {
+    padding-bottom: 10px;
+    padding: 0px !important;
+    color: #405065;
+  }
+
+div.text-right{
+  border-bottom: 1px solid rgba(20,20,20,.25);
+  width: 100%!important;
+}
+
+/* .search-hero {
+  max-width: 480px;
+  margin-top: 20px!important;
+} */
+img.search_icon{
+  position: relative!important;
+  top: -2px;
+  left: 16px;
+  z-index: 10;
+}
+.filtersrch {
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+div.filtersrch>span{
+  margin: 10px!important;
+  color:#003c71;
+  cursor: pointer!important;
+  font-family: PNR;
+  transition: all .3s linear;
+  overflow: show!important;
+  border-radius: 15px;
+  background-color:rgb(255,255,255);
+  width: 0px;
+  height: 0px;
+  padding: 7px 10px 7px 10px;
+}
+
+div.filtersrch>span.selected{
+  width:100% !important;
+  height:100% !important;
+  background-color:rgba(217,236,249,1);
+}
+.search-header {
+  border-bottom: 1px solid #e0e0e0;
+}
+.search-header i {
+  margin-top: 12px;
+}
+.searchinput {
+  background: none;
+  border: 1px solid rgba(0,60,113,0);
+  border-radius: 30px;
+  color:#000;
+  margin-left: -25px;
+  min-width: 285px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 30px;
+  transition: all 0.25s ease-in-out;
+  outline: none;
+}
+.searchinput::placeholder{
+  color:rgba(0,60,113,.5);
+}
+.searchinput:focus {
+  border: 1px solid rgba(0,60,113,1);
+}
+.new-test-btn {
+  padding-left: 25px;
+}
+
+div.adminlist>div[class="row"]{
+  margin-left: 0px;
+}
+
+a {
+  cursor: pointer!important;
+  text-decoration: none;
+  color:rgba(0,60,113,.5);
+}
+
+#logoutlink {
+  color:rgba(0,60,113,.5);
+  padding-top: 7px;
+  margin-left: auto;
+}
+
+.editbtn {
+  border-radius: 4px!important;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background: none;
+  color:rgba(0,60,113,1);
+  border-color: rgba(0,60,113,0.5);
+}
+.editbtn:hover {
+  background-color:rgba(0,60,113,1);
+  color: white;
+}
+
+.mobiletable {
+  display: none;
+}
+
+.center{
+  margin: auto!important;
+  text-align:center!important;
+}
+
+@media (max-width: 768px){
+  .desktable {
+    display: none;
+  }
+  .mobiletable {
+    display: inline;
+  }
+  div.center_mobile{
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+}

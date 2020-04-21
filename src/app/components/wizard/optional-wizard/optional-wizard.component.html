@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-12 text-center mb-3">
+    <h1>How should we deliver your order?</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="d-flex flex-wrap mx-4 p-0 justify-content-center">
+      <div appWizardPrintformCheckbox class="d-flex flex-column align-items-center m-1 card card-container p-4">
+        <img class="drug-icon" src="assets/icons/print-icon@3x.png">
+        <div class="select-title mt-2 w-100">PRINT</div>
+        <div class="card checkbox rounded-0 mt-3"></div>
+      </div>
+      <div appWizardEmailConfirm class="d-flex flex-column align-items-center m-1 card card-container p-4">
+        <div>
+          <img class="drug-icon" src="assets/icons/email-icon@3x.png">
+        </div>
+        <div class="select-title mt-2 w-100">EMAIL</div>
+        <div class="card checkbox rounded-0 mt-3"></div>
+      </div>
+      <div appWizardMobileConfirm class="d-flex flex-column align-items-center m-1 card card-container p-4">
+        <div>
+          <img class="drug-icon" src="assets/icons/sms-icon@3x.png">
+        </div>
+        <div class="select-title mt-2 w-100">TEXT</div>
+        <div class="card checkbox rounded-0 mt-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-12 p-4">
+    <button type="button" class="btn btn-success btn-lg main-cta-btn " appWizardRevieeOrderModal (custom-submit)="onSubmit($event)">Review Test</button>
+  </div>
+</div>

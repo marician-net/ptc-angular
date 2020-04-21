@@ -1,0 +1,158 @@
+<img *ngIf="loading" src="assets/images/loading.gif" style="position:absolute;z-index:50; display: block;top:50%;left:50%; " />
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <h1>Select Test Type</h1>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        Company Name: {{CompanyName}}
+    </div>
+</div>
+<div class="row col-md-12 col-sm-12  mt-3">
+   
+        <select [(ngModel)]="LocationCode" class="custom-select rounded-0">                 
+            <option *ngFor="let item of LocationCodedata" [value]="item">{{item}}</option>
+        </select>
+   
+</div>
+
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="d-flex m-0 p-0">
+            <div class="col d-flex flex-column align-items-center mr-1 card p-4" appDotDrugConfirm>
+                <img class="drug-icon" src="assets/icons/drug-icon@3x.png">
+                <div class="select-title mt-2 w-100">Drug</div>
+                <div class="card checkbox rounded-0 mt-3"></div>
+
+            </div>
+            <div class="col d-flex flex-column align-items-center mr-1 card p-4" appAlcoholCheckbox>
+                <img class="drug-icon" src="assets/icons/alcohol-icon@3x.png">
+                <div class="select-title mt-2 w-100">Alcohol</div>
+                <div class="card checkbox rounded-0 mt-3"></div>
+                <div style="color:red;display:none;" id="divDOTAlcohol">A PTC alcohol testing kit or an alcohol form supplied by the testing site MUST be used for this test.</div>
+            </div>
+
+        </div>
+       
+    </div>
+</div>
+<div class="row mt-3" *ngIf="formWizardTestService.testType === 1">
+
+    <div class="col">
+        <!-- DOT Drug testType=== 1 -->
+        <select id="selRegulatoryMode" [(ngModel)]="RegulatoryMode" class="custom-select rounded-0" appRegulatoryMode>
+            <option value="" disabled selected>Regulatory Mode</option>
+            <option *ngFor="let item of RegTypedata" [value]="item">{{item}}</option>
+        </select>
+    </div>
+    <div id="divCDL" class="col" style="display:none;">
+        <div class="row col-md-12 col-sm-12 mt-2">
+
+            <span style="font-size:18px;margin-right:5px;position:relative;top:5px;">CDL/CLP #</span>
+
+            <input type="text" name="txtDriverLicenseNumber" [(ngModel)]="DriverLicenseNumber" style="width:130px;margin-right:5px;" />
+
+            <select [(ngModel)]="DriverLicenseState" class="custom-select rounded-0" style="width:100px;">
+                <option value="" disabled selected>State</option>
+                <option Value="AL">AL</option>
+                <option Value="AK">AK</option>
+                <option Value="AZ">AZ</option>
+                <option Value="AR">AR</option>
+                <option Value="CA">CA</option>
+                <option Value="CO">CO</option>
+                <option Value="CT">CT</option>
+                <option Value="DC">DC</option>
+                <option Value="DE">DE</option>
+                <option Value="FL">FL</option>
+                <option Value="GA">GA</option>
+                <option Value="HI">HI</option>
+                <option Value="ID">ID</option>
+                <option Value="IL">IL</option>
+                <option Value="IN">IN</option>
+                <option Value="IA">IA</option>
+                <option Value="KS">KS</option>
+                <option Value="KY">KY</option>
+                <option Value="LA">LA</option>
+                <option Value="ME">ME</option>
+                <option Value="MD">MD</option>
+                <option Value="MA">MA</option>
+                <option Value="MI">MI</option>
+                <option Value="MN">MN</option>
+                <option Value="MS">MS</option>
+                <option Value="MO">MO</option>
+                <option Value="MT">MT</option>
+                <option Value="NE">NE</option>
+                <option Value="NV">NV</option>
+                <option Value="NH">NH</option>
+                <option Value="NJ">NJ</option>
+                <option Value="NM">NM</option>
+                <option Value="NY">NY</option>
+                <option Value="NC">NC</option>
+                <option Value="ND">ND</option>
+                <option Value="OH">OH</option>
+                <option Value="OK">OK</option>
+                <option Value="OR">OR</option>
+                <option Value="PA">PA</option>
+                <option Value="RI">RI</option>
+                <option Value="SC">SC</option>
+                <option Value="SD">SD</option>
+                <option Value="TN">TN</option>
+                <option Value="TX">TX</option>
+                <option Value="UT">UT</option>
+                <option Value="VT">VT</option>
+                <option Value="VA">VA</option>
+                <option Value="WA">WA</option>
+                <option Value="WV">WV</option>
+                <option Value="WI">WI</option>
+                <option Value="WY">WY</option>
+            </select>
+        </div>
+        
+    </div>
+</div>
+
+<div id="divNDOTTestType" class="row mt-3" style="display:none;">
+    <div class="col">
+        <!-- Non-DOT Drug  -->
+        <select [(ngModel)]="ProcessType" class="custom-select rounded-0">
+            <option value="" disabled selected>Test Type</option>
+            <option *ngFor="let item of TestTypedata" [value]="item.TestTypeCode">{{item.TestTypeDisplay}}</option>
+        </select>
+
+    </div>
+    
+</div>
+<div id="divNDOTTestTypeAlcohol" class="row mt-3" style="display:none;">
+    <div class="col">
+        <!-- Non-DOT  Alcohol -->
+        <select [(ngModel)]="ProcessTypeAlcohol" class="custom-select rounded-0">
+            <option value="" disabled selected>Alcohol Test Type</option>
+            <option *ngFor="let item of TestTypedata" [value]="item.TestTypeCode">{{item.TestTypeDisplay}}</option>
+        </select>
+
+    </div>
+
+</div>
+
+<div class="row mt-3">
+    <div class="col">
+        <select [(ngModel)]="Reason" class="custom-select rounded-0">
+            <option value="" disabled selected>Reason</option>
+            <option *ngFor="let item of Reasondata" [value]="item">{{item}}</option>
+        </select>
+    </div>
+</div>
+<div class="row m-4 justify-content-center" style="margin: 0 24px!important;" appObservedCollection>
+    <div class="card checkbox rounded-0 mt-3"></div>
+    <div class="rounded-0 mt-3" style="padding-left: 15px;font-size: 18px;">Observed Collection ?</div>
+    <div style="color:red;display:none;" id="divSameGender">Please ensure the collection site has a collector, the same gender as the donor, for the directly observed test.</div>
+</div>
+
+<div class="row m-4">
+    <div class="col-12 p-4">
+        <button (click)="nextSection()" type="button" class="btn btn-success btn-lg main-cta-btn ">Select Test</button>
+    </div>
+</div>
+<!-- Test Type Section  -->

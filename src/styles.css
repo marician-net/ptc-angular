@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  color: #003c71;
+}
+.form-rounded {
+  border-radius: 3rem;
+}
+.checkbox > .fa-check {
+  font-size: 1.3em;
+  color: white;
+  object-fit: contain !important;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+.checkbox-selected {
+  background: #69b3e7;
+}
+.modal-backdrop.show {
+  background-color: rgba(0,60,113,1);
+  opacity: 0.92 !important;
+}
+.main-cta-btn {
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+  min-width: 130px;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+.btn-primary {
+  white-space: nowrap;
+}
+.choice-tiles {
+  justify-content: center;
+}
+.ant-spin-container {
+  margin-bottom: 30px;
+}
+.modal-content {
+  padding: 20px
+}
+.modal-body h1 {
+  color: #69b3e7;
+}
+h1 {
+  font-size: 2.9rem;
+  line-height: 1em;
+  font-weight: 200;
+  color: rgba(0,60,113,1);
+  margin-top: 0.5em;
+}
+.drug-icon {
+  max-width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+html, body { height: 100%; }
+body { margin: 0;}
+
+.drug-dot-tag-alcohol,
+.drug-dot-tag {
+  position: absolute;
+}
+.drug-dot-tag-alcohol {
+  right: 25px;
+  padding: 5px;
+}
+.drug-dot-tag {
+  left: 20px;
+  padding: 5px;
+}
+.mat-autocomplete-panel {
+  background: white;
+}
+.push {
+  margin-left: auto;
+}
+.ant-table-wrapper {
+  padding: 10px 2em;
+}
+.agm-map-container-inner {
+  width: 100vw;
+}
+.review-text {
+    font-size: 1.5em; 
+    font-weight: 200;
+}

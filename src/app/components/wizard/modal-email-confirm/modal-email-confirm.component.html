@@ -1,0 +1,38 @@
+<div class="modal-body">
+
+
+  <form [formGroup]="validations_form">
+    <div class="row mt-3">
+      <div class="col text-center mb-3">
+        <img class="drug-icon" src="assets/icons/email-icon@3x.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center mb-2">Which email should we use?</h1>
+      </div>
+    </div>
+    <div class="row mt-1 mx-3 mt-4">
+      <div class="col">
+        <div class="form-group">
+            <label>Enter Email Address</label>
+            <input [(ngModel)]="email" formControlName="email" class="floating-input form-control" type="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors !== null" class="invalid-email">
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+
+<div class="row m-4">
+  <div class="col-12 px-4">
+    <button (click)="ok()" type="button" class="btn btn-success btn-lg main-cta-btn ">Save</button>
+  </div>
+  <div class="col-12 px-4">
+    <a (click)="cancel()" class="btn btn-lg main-cta-btn  text-dark">Cancel</a>
+  </div>
+</div>

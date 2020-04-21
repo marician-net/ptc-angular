@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h1>Schedule Information</h1>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+
+    <div class="form-group">
+      <label for="timeZone">Time Zone</label>
+      <div class="form-group">
+        <select class="custom-select" name="timeZone" id="timeZone" [(ngModel)]="scheduleModel.TimeZone">
+          <option value="">Select one</option>
+          <option value="EST">EST</option>
+          <option value="CST">CST</option>
+          <option value="MST">MST</option>
+          <option value="PST">PST</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <div class="form-group">
+      <label for="orderExpirationDate">Test Expiration Date and Time</label>
+      <input type="date" class="form-control" id="orderExpirationDate" [(ngModel)]="scheduleModel.OrderExpirationDate">
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-group">
+      <label for="orderExpirationTime">Select Time</label>
+      <input type="time" class="form-control" id="orderExpirationTime" [(ngModel)]="scheduleModel.OrderExpirationTime">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <div class="form-group">
+      <label for="preferredScheduleDate">Preferred Scheduled Date and Time</label>
+      <input type="date" class="form-control" id="preferredScheduleDate" [(ngModel)]="scheduleModel.PreferredScheduleDate">
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-group">
+      <label for="preferredScheduleTime">Select Time</label>
+      <input type="time" class="form-control" id="preferredScheduleTime" [(ngModel)]="scheduleModel.PreferredScheduleTime">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="form-group">
+      <label for="comments">Comments to Collector</label>
+      <textarea class="form-control" rows="3" id="comments" [(ngModel)]="scheduleModel.Comments"></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-12 px-4">
+    <button (click)="nextSection()" type="button" class="btn btn-success btn-lg main-cta-btn ">Next</button>
+  </div>
+</div>

@@ -1,0 +1,136 @@
+<app-wait></app-wait>
+<router-outlet></router-outlet>
+<img *ngIf="loading" src="assets/images/loading.gif" style="position:absolute;z-index:50; display: block;top:50%;left:50%; " />
+<div class="images-container">
+    <div class="adminlist" ng-app="">
+        <div class="search-header row mx-0 p-2 px-4">
+            <i class="fa fa-search"></i>
+            <input 
+                class="searchinput" 
+                type="text" 
+                name="search" 
+                [(ngModel)]="searchText" 
+                autocomplete="off"
+                placeholder="Search by Name or Donor ID">
+            <a id="logoutlink" (click)="logoutfromadmin()" class="float-right">Logout</a>
+        </div>
+        <div class="row mx-0">
+            <div class="logo center p-4"><img src="/assets/images/teamcheck-logo-dark.svg" alt="?"></div>
+        </div>
+        <!-- <div class="row mx-0 justify-content-center">
+            <div class="search-hero">
+                <input class="searchinput" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder="Search by Name or Donor ID">
+            </div>
+        </div> -->
+        <div class="row px-4 mx-0 justify-content-center">
+            
+            <div class="filtersrch">
+                <span id="filter_all" class="selected">
+                    <a (click)="filterStatus('all')">All</a>
+                </span>
+                <span id="filter_scheduled">
+                    <a (click)="filterStatus('Scheduled')">Scheduled</a>
+                </span>
+                <span id="filter_expired">
+                    <a (click)="filterStatus('Expired')">Expired</a>
+                </span>
+                <span id="filter_canceled">
+                    <a (click)="filterStatus('Canceled')">Canceled</a>
+                </span>
+                <span id="filter_ok">
+                    <a (click)="filterStatus('OK')">Collected</a>
+                </span>
+
+            </div>
+            <div class="push center_mobile">
+                <button class="btn btn-primary btn-success main-cta-btn new-test-btn" [routerLink]="['/wizard', 'new']"><i class="fa fa-plus"></i> New Test</button>
+            </div>
+        </div>
+        <nz-table #editRowTable nzShowPagination nzBordered [nzData]="dataSet" class="desktable">
+            <thead>
+                <tr>
+                    <th nzWidth="10%">Event</th>
+                    <th nzWidth="10%">Ordered</th>
+                    <th nzWidth="10%">First Name</th>
+                    <th nzWidth="10%">Last Name</th>
+                    <th nzWidth="10%">Test Type</th>
+                    <th nzWidth="10%">Notified Via</th>
+                    <th nzWidth="10%" nzShowSort nzSortKey="exdate">Expiration Date</th>
+                    <th nzWidth="10%">Drug Status</th>
+                    <th nzWidth="10%">Alc Status</th>
+                    <th nzWidth="10%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of editRowTable.data | filter:searchText">
+                    <td>{{data.event}}</td>
+                    <td>{{data.ordered | date: 'short'}}</td>
+                    <td>{{data.fname}}</td>
+                    <td>{{data.lname}}</td>
+                    <td>{{data.testtype}}</td>
+                    <td>{{data.notifiedvia}}</td>
+                    <td>
+                        {{data.expdate }}
+                    </td>
+                    <td>{{data.drugstatus}}</td>
+                    <td>{{data.alcstatus}}</td>
+                    <td>
+                        <div class="editable-row-operations">
+                            <button class="btn btn-primary btn-xs editbtn"
+                                    [disabled]="data.drugstatus != '' ? (data.drugstatus != 'SCHD' && data.drugstatus != 'PEND') : (data.alcstatus != '' ? (data.alcstatus != 'SCHD' && data.alcstatus != 'PEND') : false)"
+                                    (click)="startEdit(data.ID)">
+                                Edit
+                            </button>
+                            <button class="btn btn-primary btn-xs editbtn"
+                                    [disabled]="data.status == 'Complete' || data.status == 'Canceled'"
+                                    (click)="startResend(data.index)" style="margin-right: 5px;">
+                                Resend
+                            </button>
+                            <button class="btn btn-primary btn-xs editbtn"
+                                    [disabled]="data.drugstatus == 'OK' || data.drugstatus == 'CANC' || data.alcstatus == 'OK' || data.alcstatus == 'CANC'"
+                                    (click)="startCancel(data.index)">
+                                Cancel
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+        <nz-table #editRowmTable nzShowPagination [nzData]="mdataSet" class="mobiletable">
+            <thead>
+                <tr>
+                    <th nzWidth="5%" nzShowExpand></th>
+                    <th nzWidth="30%">First Name</th>
+                    <th nzWidth="35%">Status</th>
+                    <th nzWidth="30%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let mdata of editRowmTable.data | filter:searchText">
+                    <tr>
+                        <td nzShowExpand [(nzExpand)]="mapOfExpandData[mdata.index]"></td>
+                        <td>{{mdata.fname}}</td>
+                        <td style="padding: 16px 12px 16px 12px;">{{mdata.status}}</td>
+                        <td>
+                            <button class="btn btn-primary btn-xs editbtn"
+                                [disabled]="mdata.status == 'Complete' || mdata.status == 'Canceled'"
+                                (click)="startResend(mdata.ID)">Resend</button>
+                        </td>
+                    </tr>
+                    <tr [nzExpand]="mapOfExpandData[mdata.index]">
+                        <td></td>
+                        <td colspan="3">
+                            <p><b>ID:</b> &nbsp;&nbsp; {{mdata.index}}</p>
+                            <p><b>Full Name:</b> &nbsp;&nbsp; {{mdata.fname}} {{mdata.lname}}</p>
+                            <p><b>DOB:</b> &nbsp;&nbsp; {{mdata.dob | date: 'MM/dd/yyyy'}}</p>
+                            <p><b>Phone:</b> &nbsp;&nbsp; {{mdata.phone}}</p>
+                            <p><b>Test Type:</b> &nbsp;&nbsp; {{mdata.testtype}}</p>
+                            <p><b>Date:</b> &nbsp;&nbsp; {{mdata.expdate | date: 'MM/dd/yyyy'}}</p>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </nz-table>
+    </div>
+</div>

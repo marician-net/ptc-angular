@@ -1,0 +1,71 @@
+<img *ngIf="loading" src="assets/images/loading.gif" style="position:absolute;z-index:50; display: block;top:50%;left:50%; " />
+<agm-map [latitude]="38.816257" [longitude]="-101.613184" [zoom]="5">
+    <agm-marker *ngFor="let site of initialSitedata"
+                [latitude]="site['GeoLAT']" [longitude]="site['GeoLONG']" [openInfoWindow]="true"
+
+    >
+      <agm-info-window [disableAutoPan]="true">
+        {{site.COLLECTION_SITE}}
+      </agm-info-window>
+    </agm-marker>
+</agm-map>
+<div class="row">
+  <div class="col-12 text-center mt-3">
+    <h1>Where should we send this order?</h1>
+  </div>
+</div>
+
+<div class="row p-4">
+  <div class="col">
+    <form class="example-form">
+
+      <div class="input-group">
+        <input type="text" class="form-control form-control-lg form-rounded" placeholder="Search by Address"
+               [formControl]="control" [(ngModel)]="searchText" [matAutocomplete]="auto" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="input-group-append">
+          <button class="btn btn-success" (click)="loadData()" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option style="font-size: 9px;" *ngFor="let street of filteredStreets | async" [value]="street['COLLECTION_SITE'] + ', ' + street['ADDRESS'] + ' ' + street['CITY'] + ' ' + street['ST']">
+          {{street['COLLECTION_SITE']}}, {{ street['ADDRESS']}} {{ street['CITY']}} {{ street['ST'] }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 d-flex justify-content-center align-items-center">
+    <div class="w-100 range text-center my-3 lead text-dark font-weight-bold">RANGE</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 d-flex justify-content-center align-items-center range-slider-wrapper">
+    <ng5-slider [(value)]="searchRange" (valueChange)="searchSites($event)" [options]="sliderOptions"></ng5-slider>
+  </div>
+</div>
+
+<hr>
+<div class="container" *ngFor="let site of initialSitedata; let i = index">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-12">
+          <span><b>{{ site.COLLECTION_SITE }}</b></span>
+        </div>
+        <div class="col-sm-12">
+          <span>{{ site.ADDRESS}} {{ site.CITY}} {{ site.ST }}</span>
+        </div>
+        <div class="col-sm-12">
+          <span style="font-size: x-small"> {{ site.Private? "PRIVATE ONLY" : "PUBLIC"}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-success btn-lg main-cta-btn selsitebtn" (click)="nextSection(site)">Select</button>
+    </div>
+  </div>
+  <hr>
+</div>

@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import 'swalDrug';
+
+body {
+  color: #003c71;
+}
+
+.form-rounded {
+  border-radius: 3rem;
+}
+
+.checkbox > .fa-check {
+  font-size: 1.3em;
+  color: white;
+  object-fit: contain !important;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+.checkbox-selected {
+  background: #69b3e7;
+}
+
+.modal-backdrop.show {
+  background-color: rgba(0,60,113,1);
+  opacity: 0.92 !important;
+}
+.main-cta-btn {
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+  min-width: 130px;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+.choice-tiles {
+  justify-content: center;
+}
+.ant-spin-container {
+  margin-bottom: 30px;
+}
+.modal-content {
+  padding: 20px
+}
+.modal-body h1 {
+  color: #69b3e7;
+}
+h1 {
+  font-size: 2.9rem;
+  line-height: 1em;
+  font-weight: 200;
+  color: rgba(0,60,113,1);
+}
+.drug-icon {
+  max-width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }

@@ -1,0 +1,50 @@
+:host {
+  flex: 1;
+  padding: 15px;
+  max-width: 400px;
+}
+
+.custom-select {
+  background: url("https://api.iconify.design/gridicons-chevron-down.svg?height=24") no-repeat right 0.75rem center;
+}
+
+.alcohol-icon {
+  width: 72.7px;
+  height: 50.7px;
+  object-fit: contain;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+  border: solid 1px #003c71;
+}
+
+.select-title {
+  text-transform: uppercase;
+  width: 54px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1c6cc1;
+}
+
+.btn {
+  border-radius: 49px;
+  font-size: x-large;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+}
+.card:hover {
+  box-shadow: 0 0 15px #e0e0e0;
+  transition: 0.25s ease-in-out;
+  margin-top: -2px;
+}

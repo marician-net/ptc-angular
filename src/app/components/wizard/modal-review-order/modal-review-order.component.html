@@ -1,0 +1,23 @@
+<img *ngIf="loading" src="assets/images/loading.gif" style="position:absolute;z-index:50; display: block;top:50%;left:50%; " />
+<div class="modal-body">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">Review Order</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col p-4 text-center review-text">
+        {{getData()}}
+    </div>
+  </div>
+</div>
+
+<div class="row m-4">
+  <div class="col-12 px-4">
+    <button (click)="submit()" type="button" class="btn btn-success btn-lg main-cta-btn ">Submit Test</button>
+  </div>
+  <div class="col-12 px-4">
+    <a (click)="cancel()" class="btn btn-lg main-cta-btn text-dark">Cancel</a>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+@font-face {
+    font-family: PNB;
+    src: url("/assets/fonts/ProximaNova-Black.otf");
+}
+@font-face {
+    font-family: PNR;
+    src: url("/assets/fonts/ProximaNova-Regular.otf");
+
+}
+div[class="col-lg-12"]>div{/*login header*/
+    background-color:rgba(0,60,113,1) !important;
+    padding-bottom:50px !important;
+    padding-top:30px;
+}
+div.card{
+    border:none !important;
+}
+form[id="sign_in"]{
+    padding-top:40px;
+}
+form div div input{/*all inputs :p -Luis*/
+    /*color:rgb(0,60,113);*/
+    padding-left:.25rem !important;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-radius:0px;
+    border-bottom:3px solid rgb(0,60,113);
+    
+}
+
+form div div input::placeholder{/*all inputs :p -Luis*/
+color:#003c71;
+opacity:.5;
+font-family:PNR;
+font-weight:575;
+text-align: left !important;
+}
+form div input[name="rememberme"]{/*this is the remember me checkbox*/
+display:none !important;
+}
+form div input[name="rememberme"]:checked{/*this is the remember me checkbox*/
+    display:none !important;
+}
+label{
+    display:inline-block !important;
+    color:rgb(0,60,113) !important;
+}
+form div input[name="rememberme"]:checked + label>div#rmmbrcheckbox{/*this is the remember me checkbox*/
+    background-color:#003c71 !important;
+}
+form div input[name="rememberme"]:checked + label{/*this is the remember me checkbox*/
+    font-weight:700 !important;
+}
+div#rmmbrcheckbox{/*DO NOT MESS WITH CHECKBOX OR LABELS PLS & THNK U*/
+    float:left;
+    margin:inherit;
+    margin-right:8px;
+    position:relative !important;
+    top:2px;
+    width:19px !important;
+    height:19px !important;
+    border:1px solid #003c71;
+}
+
+.center{
+    margin:auto !important;
+    text-align:center !important;
+}
+.center_sensitive{/*Important for design that both are distinct.*/
+    margin:auto !important;
+    max-width:250px;
+}
+
+
+@media (max-width: 768px){
+    .center_sensitive{
+        max-width:calc(80%) !important;
+    }
+}

@@ -1,0 +1,13 @@
+<div class="wizard-header">
+  <a class="lead ml-2" *ngIf="pagenum === 1" style="text-decoration: none;" (click)="Cancelsection()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+  <a class="lead ml-2" *ngIf="pagenum === 2 || pagenum === 3 || pagenum === 4 || pagenum === 5" (click)="Prevsection()" style="text-decoration: none;"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+</div>
+<!--TODO: Handle back request from "Select Test Type" back to list view as "Are you sure?" modal-->
+<!-- Wizard Content -->
+<div class="wizard-main">
+  <app-test-type-wizard *ngIf="pagenum === 1" id="details" (controls)="Nextsection()"></app-test-type-wizard>
+  <app-schedule-wizard *ngIf="pagenum === 2" id="schedule" (controls)="Nextsection()"></app-schedule-wizard>
+  <app-donor-wizard *ngIf="pagenum === 3" id="donor" class="mb-auto bd-highlight" (controls)="Nextsection()"></app-donor-wizard>
+  <app-site-wizard *ngIf="pagenum === 4" id="site" (controls)="Nextsection()"></app-site-wizard>
+  <app-optional-wizard *ngIf="pagenum === 5" id="optional" (controls)="Resetsection()"></app-optional-wizard>
+</div>

@@ -1,0 +1,54 @@
+:host {
+  flex: 1;
+  display: grid;
+  grid-template-areas: 'header' 'main';
+  grid-template-rows: 50px 1fr;
+  background: white;
+  justify-content: center;
+}
+
+.wizard-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;;
+  position: fixed;
+  height: 55px;
+  z-index: 1000;
+  background-color: white;
+  width: 100%;
+}
+
+.wizard-main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-select {
+  background: url("https://api.iconify.design/gridicons-chevron-down.svg?height=24") no-repeat right 0.75rem center;
+}
+
+.icon-drug {
+  width: 70px;
+}
+
+.icon-alcohol {
+  width: 70px;
+}
+
+.select-title {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.btn {
+  border-radius: 49px;
+  font-size: x-large;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+}

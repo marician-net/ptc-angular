@@ -1,0 +1,64 @@
+<app-wait></app-wait>
+<router-outlet></router-outlet>
+
+<div class="authentication">
+    <div class="card">
+        <div class="body">
+            <img *ngIf="loading" src="assets/images/loading.gif" style="position:absolute;z-index:50; display: block;top:50%;left:50%; " />
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header center">
+                        <div class="logo"><img src="/assets/images/teamcheck-logo.svg" alt="Nexa"></div>
+                    </div>
+                </div>
+                <form class="col-lg-12" id="sign_in" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input type="text" formControlName="username"
+                                   placeholder="{{ 'login_form_input_username' | translate }}"
+                                   class="center_sensitive form-control"
+                                   [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="help-info">
+                                <div *ngIf="f.username.errors.required" class="center_sensitive">
+                                    {{ 'validation_error_email_required' | translate }}
+                                </div>
+                                <div *ngIf="f.username.errors.email" class="center_sensitive">
+                                    {{ 'validation_error_email_not_valid' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input type="password" formControlName="password"
+                                   placeholder="{{ 'login_form_input_password' | translate }}"
+                                   class="form-control center_sensitive"
+                                   [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="help-info">
+                                <div *ngIf="f.password.errors.required" class="center_sensitive">
+                                    {{ 'validation_error_password_required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group center">
+                        <input type="checkbox" formControlName="rememberme" name="rememberme" id="rememberme"
+                               class="filled-in chk-col-cyan">
+                        <label for="rememberme">
+                            <div id="rmmbrcheckbox"> </div>
+                            {{ 'login_form_check_rememberme' | translate }}
+
+                        </label>
+                    </div>
+                    <br>
+                    <div class="center form-group">
+                        <button [disabled]="loading" class="btn btn-raised btn-primary btn-success main-cta-btn">
+                            {{ 'login_form_signin_button' | translate }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
